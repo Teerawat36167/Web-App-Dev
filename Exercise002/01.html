@@ -8,15 +8,49 @@
     header {
         text-align: center;
     }
-    header.top {
+    .top {
         color: blue;
         background-color: gold;
     }
-    header.article {
+    .article {
         color: plum;
     }
-    div.reporter > img {
+    .reporter {
+        padding-bottom: 100px;
+        color: #2980B9;
+    }
+    .reporter img {
         float: right;
+        border: 4px solid #2980B9;
+    }
+    .reporter time {
+        color: #ff1493;
+        font-style: italic;
+    }
+    article {
+        display: flex;
+    }
+    article section {
+        flex-grow: 1;
+    }
+    aside {
+        float: right;
+        border-top: 3px solid;
+        border-bottom: 3px solid;
+        font-size: 40px;
+        width: 250px;
+        margin-top: -20px;
+    }
+    .luckd {
+        margin-top: 30px;
+    }
+    .luckd fieldset {
+        width: 235px;
+    }
+    footer {
+        text-align: center;
+        color: blue;
+        background-color: gold;
     }
 </style>
 <head>
@@ -72,12 +106,12 @@
     <section class="luckd">
         <p>register for lucky draw</p>
         <form>
-        <fieldset>
-        <label>Name:</label><em>*</em> <input type="text" id="name" placeholder="John Smith" autofocus required><br>
-        <label>email:</label><em>*</em> <input type="email" id="email" placeholder="abc@def.com" autofocus required><br>
-        <label>Tel:</label><em>*</em> <input type="tel" id="tel" placeholder="0xx-xxxxxxx" pattern="[0-9]{3}-[0-9]{7}" autofocus required><br>
-        <input type="submit">
-        </fieldset>
+            <fieldset>
+                <label>Name:</label><em>*</em> <input type="text" id="name" placeholder="John Smith" autofocus required><br>
+                <label>email:</label><em>*</em> <input type="email" id="email" placeholder="abc@def.com" autofocus required><br>
+                <label>Tel:</label><em>*</em> <input type="tel" id="tel" placeholder="0xx-xxxxxxx" pattern="[0-9]{3}-[0-9]{7}" autofocus required><br>
+                <input type="submit">
+            </fieldset>
         </form>
     </section>
 
