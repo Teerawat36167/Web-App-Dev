@@ -6,13 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <!-- style -->
+    <style>
+
+        /* hide scrollbar but allow scrolling */
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-y: scroll; 
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        #c {
+            width: 20%;
+        }
+
+    </style>
 
     <title>Exercise003</title>
 </head>
 
-<body>
+<body class="">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-lg">
@@ -25,6 +45,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-2">
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#world">World</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#art">Art</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Blogs
@@ -32,24 +61,29 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#blogs">Blogs</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#blogs-1">Lorem</a></li>
-                            <li><a class="dropdown-item" href="#blogs-2">Lorem</a></li>
-                            <li><a class="dropdown-item" href="#blogs-3">Lorem</a></li>
+                            <li><a class="dropdown-item" href="#blogs-1">SlickText</a></li>
+                            <li><a class="dropdown-item" href="#blogs-2">Tatango</a></li>
+                            <li><a class="dropdown-item" href="#blogs-3">Textedly</a></li>
+                            <li><a class="dropdown-item" href="#blogs-4">SimpleTexting</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Language</a>
+                        <a class="nav-link active text-light" aria-current="page" href="#prog">Language</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Cards</a>
+                        <a class="nav-link active text-light" aria-current="page" href="#custom-cards">Cards</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">About</a>
+                        <a class="nav-link active text-light" aria-current="page" href="#about">About</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#contact">Contact</a>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -72,10 +106,11 @@
             </div>
         </div>
 
-        <!-- World & Design -->
+        <!-- World & Art -->
         <div class="row mb-2">
 
-            <div class="col-md-6">
+            <!-- World -->
+            <div class="col-md-6" id="world">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary">World</strong>
@@ -83,7 +118,6 @@
                         <div class="mb-1 text-muted">Feb 3</div>
                         <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
                             lead-in to additional content.</p>
-                        <a href="#" class="stretched-link">Continue reading</a>
                     </div>
                     <div class="col-auto d-none d-lg-flex align-items-center">
                         <img class="object-fit-cover img-fluid" src="https://images.theconversation.com/files/378097/original/file-20210111-23-bqsfwl.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop" width="250" height="250">
@@ -91,15 +125,15 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <!-- Art -->
+            <div class="col-md-6" id="art">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success">Design</strong>
+                        <strong class="d-inline-block mb-2 text-success">Art</strong>
                         <h3 class="mb-0">Post title</h3>
                         <div class="mb-1 text-muted">Feb 3</div>
                         <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
                             additional content.</p>
-                        <a href="#" class="stretched-link">Continue reading</a>
                     </div>
                     <div class="col-auto d-none d-lg-flex align-items-center">
                         <img class="object-fit-cover img-fluid" src="https://media.istockphoto.com/id/1197840217/th/%E0%B9%80%E0%B8%A7%E0%B8%84%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/%E0%B8%99%E0%B8%B2%E0%B8%A1%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1-op-%E0%B8%A8%E0%B8%B4%E0%B8%A5%E0%B8%9B%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%9A-%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99.jpg?s=612x612&w=is&k=20&c=MkddeMxBRBPYYs4Jm2igMGEvxshPcXZitQXu6vvNnjQ=" width="250" height="250">
@@ -114,32 +148,51 @@
 
             <!-- 1 -->
             <div class="px-2 py-3 text-white" id="blogs-1">
-                <h3>Lorem</h3>
+                <h3>SlickText</h3>
                 <p class="">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem veniam modi animi. Veniam atque cupiditate porro quis culpa vel magnam quia alias, labore, unde non quidem ipsam voluptatem architecto mollitia?
+                    SlickText makes text message marketing and SMS marketing easy. It increases revenue and builds customer loyalty with our SMS marketing software. Follow our blog to gain thoughtful insights into the world of SMS and text message marketing with how-tos, guides, case studies, and other helpful information.
                 </p>
             </div>
 
             <!-- 2 -->
             <div class="px-2 py-3 text-white" id="blogs-2">
-                <h3>Lorem</h3>
+                <h3>Tatango | Text Message Marketing Blog</h3>
                 <p class="">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem veniam modi animi. Veniam atque cupiditate porro quis culpa vel magnam quia alias, labore, unde non quidem ipsam voluptatem architecto mollitia?
+                    Tatango provides brands SMS, MMS & RCS marketing software, in addition to the support and expertise needed to launch a successful mobile marketing campaign. Follow us as our blog provides SMS, MMS & RCS mobile marketing tips, tricks, and advice for brands to plan, launch and measure their mobile messaging campaign.
                 </p>
             </div>
 
             <!-- 3 -->
             <div class="px-2 py-3 text-white" id="blogs-3">
-                <h3>Lorem</h3>
+                <h3>Textedly</h3>
                 <p class="">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem veniam modi animi. Veniam atque cupiditate porro quis culpa vel magnam quia alias, labore, unde non quidem ipsam voluptatem architecto mollitia?
+                    Textedly is an SMS Marketing communication channel that allows you to advertise, promote, announce, and engage with your audience through Text Messaging. Follow to get all the tips and tricks about SMS marketing.
+                </p>
+            </div>
+
+            <!-- 4 -->
+            <div class="px-2 py-3 text-white" id="blogs-4">
+                <h3>SimpleTexting</h3>
+                <p class="">
+                    SMS marketing and text marketing with SimpleTexting is a simple and effective way to increase customer loyalty or drive demand. Follow our blog that shares tips, tricks, tidbits, and news about text messaging and SMS marketing.
                 </p>
             </div>
         </div>
 
         <!-- Programming Lang -->
-        <div class="px-4 py-2 mt-4">
+        <div class="px-4 py-2 mt-4 border rounded-3 shadow-sm" id="prog">
             <h2 class="pb-2 border-bottom">Programming language</h2>
+
+            <!-- C++ -->
+            <div class="px-2 py-3">
+                <div class="col-md-6 align-items-center">
+                    <h3>C++</h3>
+                </div>
+                <div class="d-flex">
+                    <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, eos.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/640px-ISO_C%2B%2B_Logo.svg.png" class="" id="c" alt="">
+                </div>
+            </div>
         </div>
 
         <!-- Cards -->
@@ -227,7 +280,7 @@
         </div>
 
         <!-- About -->
-        <div class="px-4 mb-5">
+        <div class="px-4 mb-5" id="about">
             <h2 class="pb-2 border-bottom">About</h2>
             <div class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa est repellat in repudiandae, neque nisi voluptates architecto amet reprehenderit et magnam laboriosam qui, asperiores ad hic cum molestiae fugit. Distinctio vitae, minima quis dolor iusto magnam suscipit officiis assumenda exercitationem fugit pariatur, incidunt, velit quaerat! Est provident labore expedita qui et eum debitis. Perspiciatis reprehenderit explicabo quae! Numquam, temporibus voluptatum repudiandae accusamus nesciunt aspernatur, quas delectus vel sint autem molestiae adipisci ullam qui quo. At aperiam beatae, quidem quisquam dolor nisi suscipit deserunt dicta vitae, cupiditate aliquid magni iure quis soluta reiciendis, aut asperiores. Corrupti voluptate sapiente reprehenderit blanditiis ad.</div>
         </div>
@@ -237,7 +290,8 @@
     <!-- footer -->
     <footer class="bg-dark text-center text-white">
 
-        <div class="container p-4 pb-0">
+        <!-- contact -->
+        <div class="container p-4 pb-0" id="contact">
             <!-- Social media -->
             <section class="mb-4">
 
