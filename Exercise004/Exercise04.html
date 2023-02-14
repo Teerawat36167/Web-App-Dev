@@ -4,11 +4,21 @@
      <body>
           <div id="maincontainer"></div>
           <script>
-               const maincontainer = document.getElementById("maincontainer")
+               const maincontainer = document.getElementById('maincontainer')
 
-               const headerEx4 = document.createElement("h2")
+               const headerEx4 = document.createElement('h2')
                headerEx4.innerHTML = 'Exercise 04: JavaScript&DOM'
                maincontainer.appendChild(headerEx4)
+
+               const dateButton = document.createElement('div')
+               const button = document.createElement('button')
+               button.innerHTML = 'Click me to display Date and Time'
+               button.onclick = () => {
+                    const date = new Date()
+                    dateButton.innerHTML = date
+               }
+               dateButton.appendChild(button)
+               maincontainer.appendChild(dateButton)
 
           </script>
      </body>
