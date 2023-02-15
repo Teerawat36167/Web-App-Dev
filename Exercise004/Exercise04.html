@@ -6,20 +6,56 @@
           <script>
                const maincontainer = document.getElementById('maincontainer')
 
+               // header
                const headerEx4 = document.createElement('h2')
                headerEx4.innerHTML = 'Exercise 04: JavaScript&DOM'
                maincontainer.appendChild(headerEx4)
 
+               // date
                const dateButton = document.createElement('div')
                const button = document.createElement('button')
                button.innerHTML = 'Click me to display Date and Time'
                button.onclick = () => {
                     const date = new Date()
                     dateButton.innerHTML = date
+                    dateButton.style.position = 'absolute'
+                    dateButton.style.right = '0px'
+                    dateButton.style.top = '0px'
                }
                dateButton.appendChild(button)
                maincontainer.appendChild(dateButton)
 
+               // Personal Info
+               const headerPersonal = document.createElement('div')
+               headerPersonal.style.marginTop = '30px'
+
+               const personalInfo = document.createElement('span')
+               personalInfo.innerHTML = 'Personal Info'
+               personalInfo.style.textDecoration = 'underline'
+               personalInfo.style.color = '#ff66ff'
+               personalInfo.onmouseout = () => {
+                    personalInfo.style.backgroundColor = ''
+                    personalInfo.style.color = '#ff66ff'
+               }
+               personalInfo.onmouseover = () => {
+                    personalInfo.style.backgroundColor = 'yellow'
+                    personalInfo.style.cursor = 'pointer'
+                    personalInfo.style.color = 'blue'
+               }
+               headerPersonal.appendChild(personalInfo)
+               
+               const listPersonalInfo = document.createElement('ul')
+               const info = ["Teerawat Chanivpardilok, ID: 64011154", "Subject: Web Application Development", "Semester: 2"]
+               for (let i = 0; i < info.length; i++) {
+                    const listInfo = document.createElement('li')
+                    listInfo.innerHTML = info[i]
+                    listPersonalInfo.appendChild(listInfo)
+               }
+               headerPersonal.appendChild(listPersonalInfo)
+               maincontainer.appendChild(headerPersonal)
+
+               // Snapshots
+               
           </script>
      </body>
 </html>
