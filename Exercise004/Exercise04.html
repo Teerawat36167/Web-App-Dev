@@ -12,18 +12,33 @@
                maincontainer.appendChild(headerEx4)
 
                // date
-               const dateButton = document.createElement('div')
-               const button = document.createElement('button')
-               button.innerHTML = 'Click me to display Date and Time'
-               button.onclick = () => {
-                    const date = new Date()
-                    dateButton.innerHTML = date
-                    dateButton.style.position = 'absolute'
-                    dateButton.style.right = '0px'
-                    dateButton.style.top = '0px'
+               const dateButton1 = document.createElement('button')
+               const dateButton2 = document.createElement('button')
+
+               dateButton1.innerHTML = 'Click me to display Date and Time'
+               dateButton2.hidden = true
+               dateButton2.style.position = 'absolute'
+               dateButton2.style.right = '0px'
+               dateButton2.style.top = '0px'
+               
+               dateButton1.onclick = () => {
+                    startWorker()
+                    dateButton2.hidden = false
+                    dateButton1.hidden = true
                }
-               dateButton.appendChild(button)
-               maincontainer.appendChild(dateButton)
+               
+               let posButton = 0
+               dateButton2.onclick = () => {
+                    if (!posButton) {
+                         dateButton2.style.position = ''
+                    } else {
+                         dateButton2.style.position = 'absolute'
+                    }
+                    posButton = !posButton
+               }
+
+               maincontainer.appendChild(dateButton1)
+               maincontainer.appendChild(dateButton2)
 
                // Personal Info
                const headerPersonal = document.createElement('div')
@@ -42,10 +57,18 @@
                     personalInfo.style.cursor = 'pointer'
                     personalInfo.style.color = 'blue'
                }
+               personalInfo.onclick = () => {
+                    if (listPersonalInfo.style.display == 'none') {
+                         listPersonalInfo.style.display = ''
+                    } else if (listPersonalInfo.style.display == '') {
+                         listPersonalInfo.style.display = 'none'
+                    }
+               }
                headerPersonal.appendChild(personalInfo)
                
                const listPersonalInfo = document.createElement('ul')
                const info = ["Teerawat Chanivpardilok, ID: 64011154", "Subject: Web Application Development", "Semester: 2"]
+               listPersonalInfo.style.display = 'none'
                for (let i = 0; i < info.length; i++) {
                     const listInfo = document.createElement('li')
                     listInfo.innerHTML = info[i]
@@ -55,7 +78,46 @@
                maincontainer.appendChild(headerPersonal)
 
                // Snapshots
+               const snapshots = document.createElement('h1')
+               snapshots.innerHTML = 'Snapshots'
+               maincontainer.appendChild(snapshots)
+
+               // Snapshots list
+               const snapshotsList = document.createElement('ul')
+               const picName = ['Fireworks', 'Crest', 'Action', 'Buffalo']
+               const picURL = ['https://images.pexels.com/photos/1387577/pexels-photo-1387577.jpeg?cs=srgb&dl=pexels-annalouise-1387577.jpg&fm=jpg', // Fireworks
+                         'https://images-platform.99static.com//swtyhNmiXQ9niIsySg_uw6unO18=/0x0:2000x2000/fit-in/590x590/99designs-contests-attachments/133/133502/attachment_133502724', // Crest
+                         'https://www.shutterstock.com/image-illustration/action-metaphor-260nw-138144164.jpg', // Action
+                         'https://i.natgeofe.com/n/de7be89d-3715-4e89-b83b-ab697ef781b8/thumbnail-cape-buffalo-nationalgeographic_1976203_3x2.jpg'] //Buffalo
+               for (let i = 0; i < picName.length; i++) {
+                    const picture = document.createElement('li')
+                    const pictureLink = document.createElement('a')
+                    pictureLink.href = '#'
+                    pictureLink.innerHTML = picName[i]
+                    pictureLink.onclick = () => {
+                         imageBox.src = picURL[i]
+                    }
+                    picture.appendChild(pictureLink)
+                    snapshotsList.appendChild(picture)
+               }
+               maincontainer.appendChild(snapshotsList)
+
+               // Image box
+               const imageBox = document.createElement('img')
+               imageBox.src = 'https://www.ce.kmitl.ac.th/api/main/banner/download/1'
+               maincontainer.appendChild(imageBox)
+
+               // Worker Function
+               const startWorker = () => {
+                    const date = new Date() 
+                    dateButton2.innerHTML = date
+                    // let worker = new worker('./worker.js')
+               }
                
+               const pauseWorker = () => {
+
+               }
+
           </script>
      </body>
 </html>
