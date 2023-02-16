@@ -12,33 +12,35 @@
                maincontainer.appendChild(headerEx4)
 
                // date
-               const dateButton1 = document.createElement('button')
-               const dateButton2 = document.createElement('button')
+               const showDate = document.createElement('button')
+               const dateButton = document.createElement('button')
 
-               dateButton1.innerHTML = 'Click me to display Date and Time'
-               dateButton2.hidden = true
-               dateButton2.style.position = 'absolute'
-               dateButton2.style.right = '0px'
-               dateButton2.style.top = '0px'
+               showDate.innerHTML = 'Click me to display Date and Time'
+               dateButton.hidden = true
+               dateButton.style.position = 'absolute'
+               dateButton.style.right = '0px'
+               dateButton.style.top = '0px'
                
-               dateButton1.onclick = () => {
+               showDate.onclick = () => {
                     startWorker()
-                    dateButton2.hidden = false
-                    dateButton1.hidden = true
+                    dateButton.hidden = false
+                    showDate.hidden = true
                }
                
                let posButton = 0
-               dateButton2.onclick = () => {
+               dateButton.onclick = () => {
                     if (!posButton) {
-                         dateButton2.style.position = ''
+                         pauseWorker()
+                         dateButton.style.position = ''
                     } else {
-                         dateButton2.style.position = 'absolute'
+                         startWorker()
+                         dateButton.style.position = 'absolute'
                     }
                     posButton = !posButton
                }
 
-               maincontainer.appendChild(dateButton1)
-               maincontainer.appendChild(dateButton2)
+               maincontainer.appendChild(showDate)
+               maincontainer.appendChild(dateButton)
 
                // Personal Info
                const headerPersonal = document.createElement('div')
@@ -108,14 +110,26 @@
                maincontainer.appendChild(imageBox)
 
                // Worker Function
+               let worker
+
                const startWorker = () => {
                     const date = new Date() 
-                    dateButton2.innerHTML = date
-                    // let worker = new worker('./worker.js')
+                    dateButton.innerHTML = date
+                    
+                    let countColor = 0
+                    const color = ["red", "green", "blue", "salmon", "lightgreen", "aqua"]
+
+                    worker = new Worker('worker.js')
+                    worker.onmessage = (event) => {
+                         dateButton.innerHTML = event.data
+                         dateButton.style.backgroundColor = color[countColor]
+                         dateButton.style.color = 'white'
+                         countColor = (countColor + 1) % 6
+                    }
                }
                
                const pauseWorker = () => {
-
+                    worker.terminate()
                }
 
           </script>
