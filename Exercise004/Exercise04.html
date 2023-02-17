@@ -25,16 +25,19 @@
                     startWorker()
                     dateButton.hidden = false
                     showDate.hidden = true
+                    headerPersonal.style.marginTop = '71px'
                }
                
                let posButton = 0
                dateButton.onclick = () => {
                     if (!posButton) {
                          pauseWorker()
-                         dateButton.style.position = ''
+                         dateButton.style.position = 'relative'
+                         headerPersonal.style.marginTop = '29px'
                     } else {
                          startWorker()
                          dateButton.style.position = 'absolute'
+                         headerPersonal.style.marginTop = '71px'
                     }
                     posButton = !posButton
                }
