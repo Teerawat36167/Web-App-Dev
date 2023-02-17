@@ -17,7 +17,7 @@
 
                showDate.innerHTML = 'Click me to display Date and Time'
                dateButton.hidden = true
-               dateButton.style.position = 'absolute'
+               dateButton.style.position = 'fixed'
                dateButton.style.right = '0px'
                dateButton.style.top = '0px'
                
@@ -36,7 +36,7 @@
                          headerPersonal.style.marginTop = '29px'
                     } else {
                          startWorker()
-                         dateButton.style.position = 'absolute'
+                         dateButton.style.position = 'fixed'
                          headerPersonal.style.marginTop = '71px'
                     }
                     posButton = !posButton
@@ -90,10 +90,10 @@
                // Snapshots list
                const snapshotsList = document.createElement('ul')
                const picName = ['Fireworks', 'Crest', 'Action', 'Buffalo']
-               const picURL = ['https://images.pexels.com/photos/1387577/pexels-photo-1387577.jpeg?cs=srgb&dl=pexels-annalouise-1387577.jpg&fm=jpg', // Fireworks
+               const picURL = ['https://cdn.pixabay.com/photo/2014/12/21/07/49/fireworks-574739__480.jpg', // Fireworks
                          'https://images-platform.99static.com//swtyhNmiXQ9niIsySg_uw6unO18=/0x0:2000x2000/fit-in/590x590/99designs-contests-attachments/133/133502/attachment_133502724', // Crest
                          'https://www.shutterstock.com/image-illustration/action-metaphor-260nw-138144164.jpg', // Action
-                         'https://i.natgeofe.com/n/de7be89d-3715-4e89-b83b-ab697ef781b8/thumbnail-cape-buffalo-nationalgeographic_1976203_3x2.jpg'] //Buffalo
+                         'https://a-z-animals.com/media/2021/07/Heaviest-Animals_-Bovini.jpg'] //Buffalo
                for (let i = 0; i < picName.length; i++) {
                     const picture = document.createElement('li')
                     const pictureLink = document.createElement('a')
@@ -109,7 +109,7 @@
 
                // Image box
                const imageBox = document.createElement('img')
-               imageBox.src = 'https://www.ce.kmitl.ac.th/api/main/banner/download/1'
+               imageBox.src = 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Kmitl.jpg'
                maincontainer.appendChild(imageBox)
 
                // Worker Function
@@ -119,14 +119,16 @@
                     const date = new Date() 
                     dateButton.innerHTML = date
                     
-                    let countColor = 0
-                    const color = ["red", "green", "blue", "salmon", "lightgreen", "aqua"]
+                    let countColorBG = 0
+                    let countColor = 1
+                    const color = ["red", "blue", "green", "pink", "lightgreen", "yellow"]
 
                     worker = new Worker('worker.js')
                     worker.onmessage = (event) => {
                          dateButton.innerHTML = event.data
-                         dateButton.style.backgroundColor = color[countColor]
-                         dateButton.style.color = 'white'
+                         dateButton.style.backgroundColor = color[countColorBG]
+                         dateButton.style.color = color[countColor]
+                         countColorBG = (countColorBG + 1) % 6
                          countColor = (countColor + 1) % 6
                     }
                }
