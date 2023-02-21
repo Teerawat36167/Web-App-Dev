@@ -1,0 +1,17 @@
+.container {
+     width: 700px;
+     height: 320px;
+     background-color: #FDEBD7;
+     border-style: solid;
+     border-radius: 20px;
+     padding-left: 20px;
+}
+
+.title {
+     display: inline-block;
+     margin-top: 40px;
+}
+
+.menu {
+     margin-top: 0;
+}

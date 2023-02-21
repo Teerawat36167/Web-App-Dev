@@ -1,4 +1,9 @@
 .header {
-     color: yellow;
+     color: #FFCE03;
      padding: 20px 0px;
+}
+
+menu {
+     width: 400px;
+     height: 400px;
 }
