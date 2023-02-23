@@ -1,4 +1,4 @@
-import './menu.css'
+import '../styles/menu.css'
 import React from 'react'
 import { useState } from 'react'
 import VoteButton from './VoteButton'
@@ -6,19 +6,31 @@ import VoteButton from './VoteButton'
 const Menu = (props) => {
 
      const [number, setNumber] = useState(0)
-     const [text, setText] = useState('MIN')
 
      const vote = () => {
-          // setNumber(number + 1)
-          // if (number > 10) {
-          //      setNumber(number - 1)
-          //      alert('Connot Vote more')
-          // }
-          // number === 10 ? setText('MAX') : setText(`${number}`)
+          if (number < 10) {
+               setNumber(number + 1)
+          } else {
+               alert('Cannot Vote more')
+          }
      }
 
      const unVote = () => {
-          
+          if (number > 0) {
+               setNumber(number - 1)
+          } else {
+               alert('Cannot Unvote')
+          }
+     }
+
+     const displayNum = () => {
+          if (number === 0) {
+               return 'MIN'
+          } else if (number === 10) {
+               return 'MAX'
+          } else {
+               return number
+          }
      }
 
      return (
@@ -29,7 +41,7 @@ const Menu = (props) => {
                <p className='info'>{props.info}</p>
                <div className='button-container'>
                     <VoteButton text='Click to vote' callBack={vote} />
-                    <div className='display-vote'>{text}</div>
+                    <div className='display-vote'>{displayNum()}</div>
                     <VoteButton text='Click to unvote' callBack={unVote} />
                </div>
           </div>
